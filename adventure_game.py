@@ -1,20 +1,37 @@
 import time
 import random
+import string
 
 
-def print_pause(message, after):
+def typing_simulator(message_):
     """
-    aim: This function makes printing more smoothing
-    with a timer during the program is running.
-    params:
-        message: a string that prints to player significant
-        information about where they are and which direction to take.
-
-        after: an integer that represents how long the program needs
-        to sleep before it runs the following statement.
+    Typing Simulator makes each character takes its
+    place easily in player screen.
+    :param message_: string that represents a message
+    displays in player screen.
     """
-    print(message)
-    time.sleep(after)
+    for char in message_:
+        print(char, end='')
+        # In case punctuation raises up from message_ then
+        # more secs needed during displaying
+        if char in string.punctuation:
+            time.sleep(.5)
+        # Spend .05 secs before next char is typed
+        time.sleep(.05)
+    print('')
+
+
+def print_pause(message, delay=1):
+    """
+    Print Pause makes displaying more smoothing in player screen.
+    :param message:string that represents significant
+    information about where player is and which direction
+    to move next.
+    :param delay: integer that represents the time to delay
+    displaying a message in seconds
+    """
+    time.sleep(delay)
+    typing_simulator(message)
 
 
 def play_again():
@@ -27,12 +44,12 @@ def play_again():
 
     if play_ == 'y':
         # here the player has another chance to a new adventure lol ...
-        print_pause("Excellent! Restarting the game ...", 1)
+        print_pause("Excellent! Restarting the game ...")
         start_adventure()
 
     elif play_ == 'n':
         # at this point the player gets off the whole game
-        print_pause("Thanks for playing! See you next time.", 1)
+        print_pause("Thanks for playing! See you next time.")
         return
     else:
         # In case player enters somthing rather than y or n,
@@ -56,22 +73,22 @@ def fighting_action(weapon_6, beast_5):
     # then the following instructions display.
     if 'Sword of Ogoroth' in weapon_6:
         print_pause(f"As the {beast_5} moves to attack, "
-                    f"you unsheath your new sword.", 3)
+                    f"you unsheath your new sword.")
 
         print_pause("The Sword of Ogoroth shines brightly in "
-                    "your hand as you brace yourself for the attack.", 3)
+                    "your hand as you brace yourself for the attack.", 2)
 
         print_pause(f"But the {beast_5} takes one look at "
                     f"your shiny new toy and runs away!", 3)
 
         print_pause(f"You have rid the town of the {beast_5}. "
-                    f"You are victorious!", 3)
+                    f"You are victorious!", 2)
 
     # In case the player action is fighting with weak weapon
     # then the following instructions display.
     else:
-        print_pause("You do your best...", 2)
-        print_pause(f"but your {weapon_6} is no match for the {beast_5}.", 2)
+        print_pause("You do your best...")
+        print_pause(f"but your {weapon_6} is no match for the {beast_5}.")
         print_pause("You have been defeated!", 2)
 
 
@@ -81,7 +98,7 @@ def running_away_action():
     has attacked them and running away form the house.
     """
     print_pause("You run back into the field. Luckily, "
-                "you don't seem to have been followed.", 2)
+                "you don't seem to have been followed.")
 
 
 def house_movement(weapon_5, beast_4):
@@ -97,12 +114,12 @@ def house_movement(weapon_5, beast_4):
     """
     # In case player choose to knock on the door of the house
     # then the following instructions display.
-    print_pause("You approach the door of the house.", 3)
+    print_pause("You approach the door of the house.")
     print_pause(f"You are about to knock when the door opens a"
                 f"nd out steps a {beast_4}.", 2)
 
     print_pause(f"Eep! This is the {beast_4}'s house!", 2)
-    print_pause(f"The {beast_4} attacks you!", 2)
+    print_pause(f"The {beast_4} attacks you!")
     if 'Sword of Ogoroth' not in weapon_5:
         print_pause(f"You feel a bit under-prepared for this, "
                     f"what with only having a {weapon_5}.", 3)
@@ -135,11 +152,11 @@ def cave_movement(weapon_4):
         weapon_4: a string that represents the name of the
         current weapon player has.
     """
-    print_pause("You peer cautiously into the cave.", 3)
+    print_pause("You peer cautiously into the cave.")
 
     if weapon_4 == 'Sword of Ogoroth':
         print_pause("You've been here before, and gotten all "
-                    "the good stuff. It's just an empty cave now.", 3)
+                    "the good stuff. It's just an empty cave now.", 2)
 
     else:
         print_pause("It turns out to be only a very small cave.", 2)
@@ -182,9 +199,9 @@ def main_movement_instructions():
         1: Enter 1 to knock on the door of the house.
         2: Enter 2 to peer into the cave.
     """
-    print_pause("\nEnter 1 to knock on the door of the house.", 2)
-    print_pause("Enter 2 to peer into the cave.", 2)
-    print_pause("What would you like to do?", 2)
+    print_pause("\nEnter 1 to knock on the door of the house.")
+    print_pause("Enter 2 to peer into the cave.")
+    print_pause("What would you like to do?")
 
 
 def play(weapon_2, beast_2):
@@ -210,13 +227,13 @@ def intro_adventure(beast_1, weapon_1):
     game which is telling the story of the adventure ...
     """
     print_pause("You find yourself standing in an open field, "
-                "filled with grass and yellow wildflowers.", 4)
+                "filled with grass and yellow wildflowers.")
     print_pause(f"Rumor has it that a {beast_1} is somewhere around here,"
-                f"and has been terrifying the nearby village.", 4)
-    print_pause("In front of you is a house.", 4)
-    print_pause("To your right is a dark cave.", 4)
+                f"and has been terrifying the nearby village.", 3)
+    print_pause("In front of you is a house.", 3)
+    print_pause("To your right is a dark cave.", 2)
     print_pause(f"In your hand you hold your trusty (but not very effective)"
-                f" {weapon_1}.", 4)
+                f" {weapon_1}.", 2)
 
 
 def start_adventure():
