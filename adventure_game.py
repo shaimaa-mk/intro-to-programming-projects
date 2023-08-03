@@ -23,15 +23,30 @@ def typing_simulator(message_):
 
 def print_pause(message, delay=1):
     """
-    Print Pause makes displaying more smoothing in player screen.
+    Print Pause makes displaying more smoothing and colorful
+    in player screen.
     :param message:string that represents significant
     information about where player is and which direction
     to move next.
     :param delay: integer that represents the time to delay
     displaying a message in seconds.
     """
+    colors = {
+        'blue': '\033[94m',
+        'grey': '\033[90m',
+        'yellow': '\033[93m',
+        'black': '\033[90m',
+        'cyan': '\033[96m',
+        'green': '\033[92m',
+        'magenta': '\033[95m',
+        'white': '\033[97m',
+        'red': '\033[91m'
+    }
+    # Everytime player is instructed message displays in different color
+    # this feature might not work well in Windows!!!
+    chosen_color = random.choice(list(colors.values()))
     time.sleep(delay)
-    typing_simulator(message)
+    typing_simulator(chosen_color + message)
 
 
 def play_again():
