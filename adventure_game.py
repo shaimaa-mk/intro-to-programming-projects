@@ -28,7 +28,7 @@ def print_pause(message, delay=1):
     information about where player is and which direction
     to move next.
     :param delay: integer that represents the time to delay
-    displaying a message in seconds
+    displaying a message in seconds.
     """
     time.sleep(delay)
     typing_simulator(message)
@@ -36,7 +36,7 @@ def print_pause(message, delay=1):
 
 def play_again():
     """
-    aim: This function gives the player the ability to continue playing
+    Play Again gives the player the ability to continue playing
     or just get off the game.
     """
 
@@ -59,16 +59,13 @@ def play_again():
 
 def fighting_action(weapon_6, beast_5):
     """
-    aim: This function is where the player decided to fight with
-    tiny dagger or the Sword of Ogoroth.
-    params:
-        weapon_5: a string that represents the name of the current
-        weapon player has.
-
-        beast_5: a string that represents a random name of beast
-        that player will fight.
+    Fighting Action is where the player decided to fight with
+    weak weapon or the Sword of Ogoroth.
+    :param weapon_6: string that represents the name of the current
+    weapon player has.
+    :param beast_5:string that represents a random name of beast
+    that player will fight.
     """
-
     # In case the player action is fighting with Sword of Ogoroth
     # then the following instructions display.
     if 'Sword of Ogoroth' in weapon_6:
@@ -94,8 +91,8 @@ def fighting_action(weapon_6, beast_5):
 
 def running_away_action():
     """
-    aim: This function instructs the player after the random beast
-    has attacked them and running away form the house.
+    Running Away Action instructs the player after the random
+    beast has attacked them and running away form the house.
     """
     print_pause("You run back into the field. Luckily, "
                 "you don't seem to have been followed.")
@@ -103,14 +100,12 @@ def running_away_action():
 
 def house_movement(weapon_5, beast_4):
     """
-    aim: This function instructs the player moving after
+    House Movement instructs the player moving after
     knocking the door of the house.
-    params:
-        weapon_5: a string that represents the name of
-        the current weapon player has.
-
-        beast_4: a string that represents a random name
-        of beast that player will fight.
+    :param weapon_5: string that represents the name of
+    the current weapon player has.
+    :param beast_4: string that represents a random name
+    of beast that player will fight.
     """
     # In case player choose to knock on the door of the house
     # then the following instructions display.
@@ -146,11 +141,10 @@ def house_movement(weapon_5, beast_4):
 
 def cave_movement(weapon_4):
     """
-    aim: This function make the cave movement where the player
-    is already peering the small cave ...
-    params:
-        weapon_4: a string that represents the name of the
-        current weapon player has.
+    Cave Movement instructs where the player is already
+    peering the small cave.
+    :param weapon_4: string that represents the name of
+    the current weapon player has.
     """
     print_pause("You peer cautiously into the cave.")
 
@@ -170,13 +164,12 @@ def cave_movement(weapon_4):
 
 def main_movement(weapon_3, beast_3):
     """
-    aim: This function set up the player choice as movement
-    so the game's going to be played.
-    params:
-        weapon_3: a string that represents the name of the
-        current weapon player has.
-        beast_3: a string that represents a random name of
-        beast that player will fight.
+    Main Movement is the center of the adventure game
+    where player moves(removes).
+    :param weapon_3: string that represents the name
+    of the current weapon player has.
+    :param beast_3: string that represents a random
+    name of beast that player will fight.
     """
     # main move player takes will be move_1
     move_1 = input("(Please enter 1 or 2.)\n")
@@ -194,7 +187,7 @@ def main_movement(weapon_3, beast_3):
 
 def main_movement_instructions():
     """
-    aim: This function gives the player main choices of
+    Main Movement Instructions gives the player main choices of
     the adventure game, which are:
         1: Enter 1 to knock on the door of the house.
         2: Enter 2 to peer into the cave.
@@ -206,12 +199,11 @@ def main_movement_instructions():
 
 def play(weapon_2, beast_2):
     """
-    aim: This function plays the game everytime player movement reaches out.
-    params:
-        weapon_2: a string that represents the name of
-        the current weapon player has.
-        beast_2: a string that represents a random name
-        of beast that player will fight.
+    Play is where the player is in the center of the game.
+    :param weapon_2:string that represents the name of
+    the current weapon player has.
+    :param beast_2: string that represents a random name
+    of beast that player will fight.
     """
     # call main_movement_instructions so the player is led
     # by adventure game guidelines
@@ -223,7 +215,7 @@ def play(weapon_2, beast_2):
 
 def intro_adventure(beast_1, weapon_1):
     """
-    aim: This function makes the beginning of the adventure
+    Intro Adventure makes the beginning of the adventure
     game which is telling the story of the adventure ...
     """
     print_pause("You find yourself standing in an open field, "
@@ -238,7 +230,7 @@ def intro_adventure(beast_1, weapon_1):
 
 def start_adventure():
     """
-    aim: This function runs the whole adventure game
+    Start Adventure is the point of whole adventure game
     """
     # make randomness so the game become more enjoyable ...
     beast_ = random.choice(['troll', 'dragon', 'wicked fairie', 'pirate'])
